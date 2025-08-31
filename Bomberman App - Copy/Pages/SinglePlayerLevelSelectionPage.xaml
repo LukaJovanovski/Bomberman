@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bomberman_App.Pages.SinglePlayerLevelSelectionPage"
+             BackgroundColor="#F3F4F6"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#2563EB" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+        <Style x:Key="LevelCardStyle" TargetType="Border">
+            <Setter Property="Stroke" Value="#E5E7EB" />
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 12,12,12,12" />
+        </Style>
+        <Style x:Key="CardLayoutStyle" TargetType="VerticalStackLayout">
+            <Setter Property="Spacing" Value="0" />
+        </Style>
+        <Style x:Key="CardImageContainerStyle" TargetType="Border">
+            <Setter Property="HeightRequest" Value="120" />
+            <Setter Property="StrokeThickness" Value="0" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 12,12,0,0" />
+        </Style>
+        <Style x:Key="CardIconStyle" TargetType="Path">
+            <Setter Property="Aspect" Value="Uniform" />
+            <Setter Property="HeightRequest" Value="48" />
+            <Setter Property="WidthRequest" Value="48" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+        <Style x:Key="CardTextStyle" TargetType="VerticalStackLayout">
+            <Setter Property="Padding" Value="20" />
+            <Setter Property="Spacing" Value="5" />
+        </Style>
+        <Style x:Key="CardTitleStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="#1F2937" />
+        </Style>
+        <Style x:Key="CardDescriptionStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="#6B7280" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="Auto, *">
+
+        <Button Grid.Row="0"
+                Text="← Back"
+                Clicked="BackBtn_Clicked"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                TextColor="#6B7280"
+                HorizontalOptions="Start"
+                Padding="30,20"/>
+
+        <Border Grid.Row="1"
+                StrokeThickness="0"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="700"
+                Padding="30, 40">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow Brush="Black" Opacity="0.1" Radius="20" Offset="0,10" />
+            </Border.Shadow>
+
+            <VerticalStackLayout Spacing="25">
+                <Label Text="Select Level"
+                       FontSize="36"
+                       FontAttributes="Bold"
+                       TextColor="#111827"
+                       HorizontalOptions="Center" />
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="25">
+
+                    <Border Grid.Column="0" Style="{StaticResource LevelCardStyle}">
+                        <Grid RowDefinitions="Auto, *">
+
+                            <Border Grid.Row="0" Style="{StaticResource CardImageContainerStyle}" BackgroundColor="#DBEAFE">
+                                <Path Style="{StaticResource CardIconStyle}" Stroke="#3B82F6" Data="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </Border>
+
+                            <VerticalStackLayout Grid.Row="1" Style="{StaticResource CardTextStyle}">
+                                <Label Text="Pretty Plains" Style="{StaticResource CardTitleStyle}" />
+                                <Label Text="A sparkling maze of reflective ground danger." Style="{StaticResource CardDescriptionStyle}" />
+                                <Button Text="Play" Clicked="LevelButton_Clicked" CommandParameter="1" Style="{StaticResource PrimaryButtonStyle}" Margin="0,10,0,0" VerticalOptions="EndAndExpand"/>
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Column="1" Style="{StaticResource LevelCardStyle}">
+                        <Grid RowDefinitions="Auto, *">
+
+                            <Border Grid.Row="0" Style="{StaticResource CardImageContainerStyle}" BackgroundColor="#FEE2E2">
+                                <Path Style="{StaticResource CardIconStyle}" Stroke="#EF4444" Data="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0118 17.971l-5-5 .029 10a8 8 0 01-5.372-1.314z" />
+                            </Border>
+
+                            <VerticalStackLayout Grid.Row="1" Style="{StaticResource CardTextStyle}">
+                                <Label Text="Eagles' Den" Style="{StaticResource CardTitleStyle}" />
+                                <Label Text="Don't get burned in this heated battleground." Style="{StaticResource CardDescriptionStyle}" />
+                                <Button Text="Play" Clicked="LevelButton_Clicked" CommandParameter="2" Style="{StaticResource PrimaryButtonStyle}" Margin="0,10,0,0" VerticalOptions="EndAndExpand"/>
+                            </VerticalStackLayout>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Bomberman_App.Pages.MenuPage"
+             BackgroundColor="#F3F4F6"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Resources>
+        <!-- Style for the primary action buttons (blue) -->
+        <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#2563EB" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BorderWidth" Value="0" />
+        </Style>
+
+        <!-- Style for the secondary action button (gray) -->
+        <Style x:Key="SecondaryButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#374151" />
+            <Setter Property="BackgroundColor" Value="#E5E7EB" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="BorderWidth" Value="0" />
+        </Style>
+    </ContentPage.Resources>
+
+    <!-- Main layout container -->
+    <VerticalStackLayout VerticalOptions="Center"
+                         HorizontalOptions="Center"
+                         Spacing="15"
+                         Padding="20">
+
+        <!-- Centered content card -->
+        <Border StrokeThickness="0"
+                BackgroundColor="White"
+                WidthRequest="420"
+                Padding="30, 40">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+            <Border.Shadow>
+                <Shadow Brush="Black" Opacity="0.1" Radius="20" Offset="0,10" />
+            </Border.Shadow>
+
+            <VerticalStackLayout Spacing="25">
+                <!-- Header Section -->
+                <VerticalStackLayout Spacing="5" Margin="0,0,0,15">
+                    <Label Text="Bomberman"
+                           FontSize="42"
+                           FontAttributes="Bold"
+                           TextColor="#111827"
+                           HorizontalOptions="Center" />
+                    <Label Text="v1.0.0"
+                           TextColor="#6B7280"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <!-- Navigation Buttons -->
+                <Button x:Name="SinglePlayerBtn"
+                        Text="Play"
+                        Clicked="SinglePlayerBtn_Clicked"
+                        Style="{StaticResource PrimaryButtonStyle}">
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="PrimaryButton_PointerEntered" PointerExited="PrimaryButton_PointerExited" />
+                    </Button.GestureRecognizers>
+                </Button>
+
+                <Button x:Name="ExitBtn"
+                        Text="Exit"
+                        Clicked="ExitButton_Clicked"
+                        Style="{StaticResource SecondaryButtonStyle}" 
+                        Margin="0,20,0,0">
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="SecondaryButton_PointerEntered" PointerExited="SecondaryButton_PointerExited" />
+                    </Button.GestureRecognizers>
+                </Button>
+
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Footer -->
+        <Label Text="© 2025 Luka Jovanovski"
+               TextColor="#9CA3AF"
+               FontSize="12"
+               HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

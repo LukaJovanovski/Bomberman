@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<Shell
+    x:Class="Bomberman_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Bomberman_App"
+    Shell.FlyoutBehavior="Flyout"
+    Title="Bomberman_App">
+
+    <ShellContent
+        Title=""
+        ContentTemplate="{DataTemplate local:MenuPage}"
+        Route="MenuPage" />
+
+</Shell> -->
+
+<Shell
+    x:Class="Bomberman_App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Bomberman_App.Pages"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title="Main Menu"
+        ContentTemplate="{DataTemplate local:MenuPage}"
+        Route="MenuPage" />
+
+</Shell>
